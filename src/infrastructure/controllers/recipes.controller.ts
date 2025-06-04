@@ -27,16 +27,12 @@ export class RecipesController {
   @Get()
   async findAll() {
     const recipes = await this.listAllRecipesUseCase.execute();
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    return recipes.map(RecipePresenter.toHTTP);
+    return recipes.map((recipe) => RecipePresenter.toHTTP(recipe));
   }
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
     const recipe = await this.getRecipeByIdUseCase.execute(id);
-    if (!recipe) {
-      return null;
-    }
-    return RecipePresenter.toHTTP(recipe);
+    return recipe ? RecipePresenter.toHTTP(recipe) : null;
   }
 }
