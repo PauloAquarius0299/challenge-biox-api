@@ -23,6 +23,7 @@
     "@nestjs/common": "^11.1.2",
     "@nestjs/core": "^11.1.2",
     "@nestjs/platform-express": "^11.1.2",
+    "api-receitas": "file:",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2"
   },
