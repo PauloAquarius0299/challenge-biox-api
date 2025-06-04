@@ -1,8 +1,16 @@
+import { Inject, Injectable } from '@nestjs/common';
 import { Recipe } from '../entities/recipe.entity';
-import { RecipeRepository } from '../repositories/recepe.repository';
+import {
+  RECIPE_REPOSITORY,
+  RecipeRepository,
+} from '../repositories/recepe.repository';
 
+@Injectable()
 export class ListAllRecipesUseCase {
-  constructor(private readonly recipeRepository: RecipeRepository) {}
+  constructor(
+    @Inject(RECIPE_REPOSITORY)
+    private readonly recipeRepository: RecipeRepository,
+  ) {}
 
   async execute(): Promise<Recipe[]> {
     return this.recipeRepository.findAll();
