@@ -1,4 +1,38 @@
-<p align="center">
+# Desafio backend Biox 
+Desenvolvendo uma API simples de receitas com Nestjs, Typescript e banco de dados em memoria de acordo com a proposta do desafio
+### API na web
+Segue a url de acesso a API na qual eu subi na web pelo EC2 da AWS temporariamente.
+```
+http://56.125.98.104:3000/recipes
+```
+### Solução 
+Seguindo os princípios de Clean Architecture e DDD com NestJS. Aqui está uma abordagem estruturada para facilitar a manutenção do projeto de forma organizada:
+```
+src/
+├── core/                    
+│   ├── entities/            
+│   ├── repositories/        
+│   └── use-cases/           
+├── infrastructure/          
+│   ├── controllers/         
+│   ├── database/            
+│   └── presenters/                         
+└── main.ts                 
+```
+No core organizei as classes de entidades onde defi os tipos dos objetos, repositorio onde se define COMO usamos os dados, não COMO são armazenados e casos de uso que orquestram o fluxo de negócio usando a interface do repositorio.
+
+Na infra organizei os controllers para receber requisições HTTP, database onde implementa de forma concreta os repositorios e o recepe classes que formatam dados para saída de forma a controlar como os dados são expostos na API e Transformar objetos de domínio em respostas
+
+E no RecipesModule está o coração da integração total do projeto de forma estruturada onde mantém a separação limpa entre dominio, infraestrutura e o nestjs
+### Ferramentas 
+* Nestjs
+* TypeScript
+* Nodejs
+* Banco de dados em Memoria
+* EC2 - subir a aplicação na web
+* Jest - teste unitários
+-- ---
+<p lign="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
