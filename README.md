@@ -19,11 +19,13 @@ src/
 │   └── presenters/                         
 └── main.ts                 
 ```
-No core organizei as classes de entidades onde defi os tipos dos objetos, repositorio onde se define COMO usamos os dados, não COMO são armazenados e casos de uso que orquestram o fluxo de negócio usando a interface do repositorio.
 
-Na infra organizei os controllers para receber requisições HTTP, database onde implementa de forma concreta os repositorios e o recepe classes que formatam dados para saída de forma a controlar como os dados são expostos na API e Transformar objetos de domínio em respostas
+No core, organizei as entidades, onde defino os tipos dos objetos; os repositórios, que estabelecem como os dados são acessados (sem se preocupar com como são armazenados); e os casos de uso, que orquestram o fluxo de negócio utilizando as interfaces dos repositórios.
 
-E no RecipesModule está o coração da integração total do projeto de forma estruturada onde mantém a separação limpa entre dominio, infraestrutura e o nestjs
+Na infra, estruturei os controllers, responsáveis por receber as requisições HTTP; a camada de database, onde ficam as implementações concretas dos repositórios; e as classes de response, que formatam os dados de saída, controlando como as informações são expostas na API e transformando objetos de domínio em respostas adequadas.
+
+Por fim, no RecipesModule, concentrei a integração do projeto de forma estruturada, mantendo uma separação clara entre domínio, infraestrutura e o NestJS, promovendo uma arquitetura limpa e escalável.
+
 ### Ferramentas 
 * Nestjs
 * TypeScript
